@@ -1,0 +1,249 @@
+/* =========================================
+   VARIABLES Y RESETEO BÁSICO
+========================================= */
+:root {
+    --color-fondo: #ffffff;
+    --color-texto: #4a4a4a;
+    --color-texto-fuerte: #333333;
+    --color-borde: #555555;
+    --color-hover: #000000;
+    --fuente-principal: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fuente-principal);
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* =========================================
+   CABECERA (HEADER)
+========================================= */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 3rem 5%;
+}
+
+/* Flex = 1 en los navs laterales permite que el logo central quede perfectamente en medio */
+.cabecera__nav {
+    flex: 1;
+}
+
+.cabecera__nav--izq {
+    text-align: left;
+}
+
+.cabecera__nav--der .cabecera__menu {
+    justify-content: flex-end;
+}
+
+.cabecera__menu {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.cabecera__menu__opcion {
+    text-decoration: none;
+    color: var(--color-texto);
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.cabecera__menu__opcion:hover {
+    color: var(--color-hover);
+}
+
+/* Logo Central */
+.cabecera__enlace-logo {
+    flex: 1;
+    text-align: center;
+    text-decoration: none;
+    color: var(--color-texto-fuerte);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Ocultamos la imagen si falla o usamos solo texto para que se vea como en tu boceto */
+.cabecera__logo {
+    max-height: 50px;
+    object-fit: contain;
+}
+
+.cabecera__titulo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.boton__modo {
+    background: transparent;
+    border: 1px solid var(--color-borde);
+    color: var(--color-texto);
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+.boton__modo:hover {
+    background: var(--color-texto-fuerte);
+    color: var(--color-fondo);
+}
+
+/* =========================================
+   CONTENIDO PRINCIPAL (MAIN)
+========================================= */
+main {
+    flex: 1; /* Empuja el footer hacia abajo */
+    padding: 2rem 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- SECCIÓN BUSCADOR --- */
+.seccion__busqueda {
+    margin-top: 4rem;
+    margin-bottom: 5rem;
+    width: 100%;
+    text-align: center;
+}
+
+.busqueda__contenedor {
+    border: none;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap; /* Para móviles */
+}
+
+#input-busqueda, #filtro-endpoint, #boton-buscar {
+    padding: 0.8rem 1.2rem;
+    font-size: 1rem;
+    border: 1px solid var(--color-borde);
+    border-radius: 4px;
+    font-family: inherit;
+    outline: none;
+}
+
+#input-busqueda {
+    width: 300px;
+    max-width: 100%;
+}
+
+#boton-buscar {
+    background-color: var(--color-texto-fuerte);
+    color: var(--color-fondo);
+    cursor: pointer;
+    font-weight: bold;
+    border: 1px solid var(--color-texto-fuerte);
+    transition: background 0.3s;
+}
+
+#boton-buscar:hover {
+    background-color: var(--color-fondo);
+    color: var(--color-texto-fuerte);
+}
+
+/* --- SECCIÓN RESULTADOS (EL CUADRO GRANDE DE LA IMAGEN) --- */
+.seccion__resultados {
+    width: 100%;
+    max-width: 1200px;
+    min-height: 400px; /* Altura mínima para que parezca el cuadro de la imagen */
+    border: 1px solid var(--color-borde);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Texto de "RESULTS" centrado como en tu imagen cuando no hay nada */
+.seccion__resultados h2 {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+    color: var(--color-texto);
+}
+
+/* Cuadrícula para las tarjetas inyectadas por JS */
+.resultados__lista {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    width: 100%;
+}
+
+/* Estilos básicos para los <article> inyectados por JS */
+.resultados__lista article {
+    border: 1px solid #e0e0e0;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.resultados__lista img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.resultados__lista footer {
+    margin-top: auto; /* Empuja los botones al fondo de la tarjeta */
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+/* =========================================
+   PIE DE PÁGINA (FOOTER)
+========================================= */
+footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid #eaeaea;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+}
+
+/* =========================================
+   RESPONSIVO (MÓVILES)
+========================================= */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 2rem 5%;
+    }
+
+    .cabecera__nav--izq, .cabecera__nav--der .cabecera__menu {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .cabecera__menu {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}

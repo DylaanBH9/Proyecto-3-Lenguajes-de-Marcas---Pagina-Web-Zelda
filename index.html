@@ -1,21 +1,69 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>InfoHyrule - Buscador</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="assets/js/script.js" defer></script>
 </head>
 <body>
+
 <header>
+    <nav class="cabecera__nav cabecera__nav--izq">
+        <ul class="cabecera__menu">
+            <li><a class="cabecera__menu__opcion" href="index.html">Inicio</a></li>
+        </ul>
+    </nav>
 
+    <a href="index.html" class="cabecera__enlace-logo">
+        <img class="cabecera__logo" src="assets/img/logo.png" alt="LOGO">
+        <h1 class="cabecera__titulo">InfoHyrule</h1>
+    </a>
+
+    <nav class="cabecera__nav cabecera__nav--der">
+        <ul class="cabecera__menu">
+            <li><a class="cabecera__menu__opcion" href="favoritos.html">Favoritos</a></li>
+            <li><a class="cabecera__menu__opcion" href="catalogo.html">Catálogo</a></li>
+            <li><button class="boton__modo">Modo Claro</button></li>
+        </ul>
+    </nav>
 </header>
+
 <main>
+    <section class="seccion__busqueda">
+        <form id="formulario-busqueda" action="#" method="GET">
+            <fieldset class="busqueda__contenedor">
+                <legend style="display: none;">Buscador de Zelda</legend>
 
+                <label for="input-busqueda"></label>
+                <input type="search" id="input-busqueda" name="q" placeholder="Buscar en Hyrule..." required>
+
+                <label for="filtro-endpoint"></label>
+                <select id="filtro-endpoint" name="endpoint">
+                    <option value="juegos">Juegos</option>
+                    <option value="compendio">Compendio (Monstruos/Armas)</option>
+                </select>
+
+                <button type="submit" id="boton-buscar">Buscar</button>
+            </fieldset>
+        </form>
+    </section>
+
+    <section class="seccion__resultados">
+        <h2>Resultados</h2>
+
+        <ul id="contenedor-resultados" class="resultados__lista">
+
+
+
+        </ul>
+    </section>
 </main>
-<footer>
 
+<footer>
+    <p>&copy; 2026 InfoHyrule. Proyecto buscador de Zelda.</p>
 </footer>
+
 </body>
 </html>
