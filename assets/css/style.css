@@ -1,5 +1,6 @@
 :root {
     --color-fondo: #eff5f1;
+    --color-fondo-caja: #ffffff; /* Variable para las cajas y buscador */
     --color-verde-principal: #6cb388;
     --color-verde-oscuro: #285e3d;
     --color-texto: #3a453f;
@@ -11,6 +12,19 @@
     --fuente-principal: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
+/* VARIABLES MODO OSCURO (.oscuro) */
+body.oscuro {
+    --color-fondo: #121a15;
+    --color-fondo-caja: #1a261e;
+    --color-verde-principal: #6cb388;
+    --color-verde-oscuro: #a5d4b8;
+    --color-texto: #b5c4bc;
+    --color-texto-fuerte: #f0f5f2;
+    --color-borde: #2d4235;
+    --color-hover: #85d6a3;
+}
+
+/* RESETEO Y BODY */
 * {
     margin: 0;
     padding: 0;
@@ -24,17 +38,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-}
-
-body.oscuro {
-    --color-fondo: #121a15;
-    --color-fondo-caja: #1b261f;
-    --color-verde-principal: #85d6a3;
-    --color-verde-oscuro: #a5d4b8;
-    --color-texto: #b5c4bc;
-    --color-texto-fuerte: #e8f0ec;
-    --color-borde: #2d4235;
-    --color-hover: #4b8f68;
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 /* CABECERA (HEADER) */
@@ -91,6 +95,12 @@ header {
 .cabecera__logo {
     max-height: 50px;
     object-fit: contain;
+    transition: filter 0.4s ease;
+}
+
+/*  El logo negro se vuelve blanco en modo oscuro */
+body.oscuro .cabecera__logo {
+    filter: invert(1) brightness(2);
 }
 
 .cabecera__titulo {
@@ -103,7 +113,7 @@ header {
 .boton__modo {
     background: transparent;
     border: 2px solid var(--color-verde-principal);
-    color: var(--color-verde-oscuro);
+    color: var(--color-texto-fuerte);
     padding: 0.5rem 1rem;
     cursor: pointer;
     border-radius: 4px;
@@ -114,7 +124,7 @@ header {
 
 .boton__modo:hover {
     background: var(--color-verde-principal);
-    color: #ffffff;
+    color: var(--color-fondo);
 }
 
 /* CONTENIDO PRINCIPAL (MAIN) */
@@ -134,7 +144,6 @@ main {
     text-align: center;
 }
 
-/* Texto de contexto encima del buscador */
 .busqueda__contexto {
     font-size: 1.2rem;
     color: var(--color-verde-oscuro);
@@ -142,6 +151,7 @@ main {
     letter-spacing: 1px;
     text-transform: uppercase;
     font-weight: 700;
+    transition: color 0.4s ease;
 }
 
 .busqueda__contenedor {
@@ -159,8 +169,9 @@ main {
     border-radius: 4px;
     font-family: inherit;
     outline: none;
-    background-color: #ffffff;
+    background-color: var(--color-fondo-caja);
     color: var(--color-texto-fuerte);
+    transition: all 0.3s ease;
 }
 
 #input-busqueda {
@@ -179,11 +190,10 @@ main {
 
 #boton-buscar {
     background-color: var(--color-verde-oscuro);
-    color: #ffffff;
+    color: var(--color-fondo);
     cursor: pointer;
     font-weight: bold;
     border: 2px solid var(--color-verde-oscuro);
-    transition: all 0.3s ease;
 }
 
 #boton-buscar:hover {
@@ -197,12 +207,13 @@ main {
     max-width: 1200px;
     min-height: 400px;
     border: 2px solid var(--color-borde);
-    background-color: #ffffff;
+    background-color: var(--color-fondo-caja);
     padding: 2rem;
     display: flex;
     flex-direction: column;
     border-radius: 8px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06); /* Sombra un poco más pronunciada */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.4s ease, border-color 0.4s ease;
 }
 
 .seccion__resultados h2 {
@@ -212,6 +223,7 @@ main {
     letter-spacing: 2px;
     margin-bottom: 2rem;
     color: var(--color-verde-oscuro);
+    transition: color 0.4s ease;
 }
 
 .resultados__lista {
