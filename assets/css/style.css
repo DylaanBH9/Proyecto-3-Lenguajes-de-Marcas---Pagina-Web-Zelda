@@ -138,8 +138,8 @@ main {
 
 /* SECCIÓN BUSCADOR */
 .seccion__busqueda {
-    margin-top: 2rem;
-    margin-bottom: 5rem;
+    padding-top: 2rem;
+    padding-bottom: 5rem;
     width: 100%;
     text-align: center;
 }
@@ -147,7 +147,7 @@ main {
 .busqueda__contexto {
     font-size: 1.2rem;
     color: var(--color-verde-oscuro);
-    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
     letter-spacing: 1px;
     text-transform: uppercase;
     font-weight: 700;
@@ -221,7 +221,7 @@ main {
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: 2px;
-    margin-bottom: 2rem;
+    padding-bottom: 2rem;
     color: var(--color-verde-oscuro);
     transition: color 0.4s ease;
 }
@@ -239,7 +239,7 @@ footer {
     text-align: center;
     padding: 2rem;
     border-top: 2px solid var(--color-borde);
-    margin-top: 2rem;
+    padding-top: 2rem;
     font-size: 1rem;
     font-weight: 500;
     color: var(--color-verde-oscuro);
@@ -262,4 +262,112 @@ footer {
         flex-wrap: wrap;
         justify-content: center;
     }
+}
+
+
+/* PÁGINA DE FAVORITOS */
+
+.seccion__favoritos {
+    width: 100%;
+    max-width: 1200px;
+    min-height: 500px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border: 2px solid var(--color-borde);
+    background-color: var(--color-fondo-caja);
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+
+.favoritos__titulo {
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    padding-bottom: 3rem;
+    color: var(--color-verde-oscuro);
+    transition: color 0.4s ease;
+}
+
+.favoritos__lista {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 2.5rem;
+    width: 100%;
+}
+
+.favoritos__item {
+    display: flex;
+}
+
+.tarjeta-fav {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border: 1px solid var(--color-texto);
+    background-color: transparent;
+    border-radius: 4px;
+    overflow: hidden;
+    transition: border-color 0.4s ease, transform 0.3s ease;
+}
+
+.tarjeta-fav:hover {
+    transform: translateY(-5px);
+    border-color: var(--color-verde-principal);
+}
+
+.tarjeta-fav img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: var(--color-fondo);
+}
+
+/* BOTÓN DE FAVORITOS */
+
+.boton-fav {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--color-texto-fuerte);
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.3s ease;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 1. ESTADO POR DEFECTO: Corazón Vacío */
+.boton-fav::before {
+    content: "\2661"; /* Código Unicode para ♡ */
+    transition: content 0.3s ease;
+}
+
+.boton-fav:hover {
+    transform: scale(1.2);
+    color: var(--color-verde-principal);
+}
+
+/* 2. ESTADO GUARDADO: Corazón Relleno */
+.boton-fav.guardado::before {
+    content: "\2665"; /* Código Unicode para ♥ */
+}
+
+/* 3. HOVER SOBRE GUARDADO: Icono de quitar (Cruz monocromática) */
+.boton-fav.guardado:hover::before {
+    content: "\2716"; /* Código Unicode para ✖ */
+}
+
+.boton-fav.guardado:hover {
+    color: #c95c5c; /* Un tono rojizo para indicar "eliminar" */
 }
