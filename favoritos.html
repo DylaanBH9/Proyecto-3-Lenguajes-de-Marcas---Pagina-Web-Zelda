@@ -5,8 +5,7 @@
     <title>InfoHyrule - Favoritos</title>
     <link rel="stylesheet" href="assets/css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="assets/js/script.js" defer></script>
-</head>
+    <script type="module" src="assets/js/script.js" defer></script></head>
 <body>
 
 <header>
@@ -32,11 +31,37 @@
 
 <main>
     <section class="seccion__favoritos">
-        <h2 class="favoritos__titulo">Elementos Favoritos</h2>
 
-        <!-- Lista de tarjetas vacía. JS inyectará los <li> aquí desde Firebase -->
+        <header>
+            <h2 class="favoritos__titulo">Elementos Favoritos</h2>
+
+            <form class="favoritos__controles" style="display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; align-items: center;">
+
+                <fieldset style="border: none; padding: 0; margin: 0; display: flex; gap: 1rem; flex-wrap: wrap; flex: 1;">
+                    <legend style="display: none;">Opciones de filtrado y ordenación</legend>
+
+                    <select id="filtro-tipo" aria-label="Filtrar por tipo" style="padding: 0.6rem; border-radius: 4px; border: 1px solid var(--color-borde); background: var(--color-fondo-caja); color: var(--color-texto);">
+                        <option value="todos">Todos los tipos</option>
+                        <option value="juegos">Catálogo (XML)</option>
+                        <option value="games">Juegos (API)</option>
+                        <option value="monsters">Monstruos (API)</option>
+                    </select>
+
+                    <select id="orden-favs" aria-label="Ordenar favoritos" style="padding: 0.6rem; border-radius: 4px; border: 1px solid var(--color-borde); background: var(--color-fondo-caja); color: var(--color-texto);">
+                        <option value="fecha-desc">Más recientes primero</option>
+                        <option value="fecha-asc">Más antiguos primero</option>
+                        <option value="nombre-asc">Nombre (A-Z)</option>
+                        <option value="nombre-desc">Nombre (Z-A)</option>
+                    </select>
+                </fieldset>
+
+                <button type="button" id="btn-vaciar" style="padding: 0.6rem 1.2rem; background-color: #c95c5c; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; margin-left: auto;">
+                    Vaciar Favoritos
+                </button>
+            </form>
+        </header>
+
         <ul class="favoritos__lista">
-
 
         </ul>
     </section>
