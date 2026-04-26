@@ -1,9 +1,7 @@
-// transform.js - Conversión de XML a JSON
+// transformar_xml2json.js - Conversión de XML a JSON
 
 export async function obtenerCatalogoJSON() {
     const respuesta = await fetch('data/juegos.xml');
-
-    if (!respuesta.ok) throw new Error(`HTTP error! status: ${respuesta.status}`);
 
     const textoXML = await respuesta.text();
     const parser = new DOMParser();

@@ -10,7 +10,7 @@ También permite ver un catálogo antiguo en XML y guardar favoritos en la nube 
 En este proyecto he usado tecnologías web básicas, sin frameworks pesados:
 
 - **HTML5 y CSS3**: estructura de la web y diseño adaptable (responsive), con modo claro y oscuro.
-- **JavaScript (Vanilla JS)**: lógica de la app, separada en archivos (`api.js`, `ui.js`, `transform.js`, `firebase.js`).
+- **JavaScript (Vanilla JS)**: lógica de la app, separada en archivos (`api.js`, `ui_dom_eventos.js`, `transformar_xml2json.js`, `firebase.js`).
 - **Firebase Firestore**: base de datos en la nube para guardar favoritos.
 - **DOMParser**: para leer el archivo XML desde el navegador y convertirlo.
 

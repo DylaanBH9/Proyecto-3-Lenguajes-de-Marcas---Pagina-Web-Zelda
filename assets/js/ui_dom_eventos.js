@@ -1,8 +1,8 @@
-// ui.js - Manipulación del DOM y eventos
+// ui_dom_eventos.js - Manipulación del DOM y eventos
 
 import { agregarFavorito, eliminarFavorito, obtenerFavoritos } from './firebase.js';
 import { buscarEnZeldaAPI } from './api.js';
-import { obtenerCatalogoJSON } from './transform.js';
+import { obtenerCatalogoJSON } from './transformar_xml2json.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
 
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     async function cargarYRenderizarCatalogo() {
         try {
-            // Usamos la función modular importada de transform.js
+            // Usamos la función modular importada de transformar_xml2json.js
             const juegosJSON = await obtenerCatalogoJSON();
 
             juegosJSON.forEach(juego => {
